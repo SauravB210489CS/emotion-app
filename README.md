@@ -1,35 +1,75 @@
-# 🎤 Real-Time Emotion Detection App with LMAC Interpretability
+# Hindi Speech Emotion Recognition Dataset
 
-This is a real-time speech emotion detection system powered by deep learning and Streamlit. It records audio from your microphone, predicts the emotion using a trained CNN+LSTM model, and visualizes the time regions of audio that influenced the prediction using LMAC (Local Model-Agnostic Classification).
-
----
-
-## 🚀 Features
-
-- 🎙️ Records live audio via microphone
-- 🧠 Predicts emotion using a CNN + LSTM model
-- 📊 Displays log-mel spectrogram
-- 🔍 Shows LMAC-based interpretability of predictions
-- 🌐 Deployable on Streamlit Cloud
+This dataset contains labeled emotional speech recordings in Hindi across 8 distinct emotions. It is used for building machine learning and deep learning models for speech emotion recognition.
 
 ---
 
-## 📦 Requirements
+##  Dataset Download
 
-- Python 3.7+
-- torch
-- librosa
-- sounddevice
-- scipy
-- matplotlib
-- joblib
-- streamlit
-- gdown
-
-Install all with:
-
-```bash
-pip install -r requirements.txt
+🔗 [Click to download the dataset from Google Drive](https://drive.google.com/drive/folders/1Qjmc_kHq9i2lDXhtorzmNh5u_Gb6gEWT?usp=drive_link)
 
 ---
-Link to Dataset : https://drive.google.com/drive/folders/1Qjmc_kHq9i2lDXhtorzmNh5u_Gb6gEWT?usp=drive_link
+
+## 🎯 Dataset Description
+
+- 🗂️ **Structure**:
+
+- 🎤 **Audio Format**: `.wav`
+- 🔁 **Sample Rate**: 16 kHz
+- 🎭 **Emotions**:
+- Happy
+- Sad
+- Angry
+- Disgust
+- Fear
+- Neutral
+- Surprise
+- Sarcastic
+
+- 👤 **Speakers**: 8 (Male & Female)
+- 🧪 **Sessions per speaker**: 5
+- 🗣️ **Sentences per emotion**: 10 Hindi sentences (pre-defined)
+
+---
+
+## 📝 Label Format
+
+Each file is named using the format:
+
+---
+
+## 🧠 Usage
+
+You can use this dataset for:
+- Emotion classification using SVM, CNN, LSTM
+- Feature extraction (MFCC, Chroma, Mel)
+- Interpretability research using LMAC
+- Real-time emotion prediction apps
+
+---
+
+## ⚠️ Terms of Use
+
+- This dataset is intended for **research and educational use only**
+- Redistribution requires attribution to the original collector
+- Do not use for commercial purposes without permission
+
+---
+
+## 📜 Citation
+
+
+---
+
+## 🧑‍💻 Maintainer
+
+**Saurav Singh**  
+NIT Calicut  
+📧 sauravkumarsinghnitc@gmail.com
+
+---
+
+✅ For model training code and demo app, check out:  
+👉 [Real-Time Emotion Detection GitHub Repo](https://github.com/SauravB210489CS/emotion-app)
+
+
