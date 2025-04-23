@@ -10,13 +10,13 @@ This dataset contains labeled emotional speech recordings in Hindi across 8 dist
 
 ---
 
-## 🎯 Dataset Description
+##  Dataset Description
 
-- 🗂️ **Structure**:
+- 🗂 **Structure**:
 
-- 🎤 **Audio Format**: `.wav`
-- 🔁 **Sample Rate**: 16 kHz
-- 🎭 **Emotions**:
+-  **Audio Format**: `.wav`
+-  **Sample Rate**: 16 kHz
+-  **Emotions**:
 - Happy
 - Sad
 - Angry
@@ -26,19 +26,19 @@ This dataset contains labeled emotional speech recordings in Hindi across 8 dist
 - Surprise
 - Sarcastic
 
-- 👤 **Speakers**: 8 (Male & Female)
-- 🧪 **Sessions per speaker**: 5
-- 🗣️ **Sentences per emotion**: 10 Hindi sentences (pre-defined)
+-  **Speakers**: 8 (Male & Female)
+-  **Sessions per speaker**: 5
+-  **Sentences per emotion**: 10 Hindi sentences (pre-defined)
 
 ---
 
-## 📝 Label Format
+##  Label Format
 
 Each file is named using the format:
 
 ---
 
-## 🧠 Usage
+##  Usage
 
 You can use this dataset for:
 - Emotion classification using SVM, CNN, LSTM
@@ -61,7 +61,7 @@ You can use this dataset for:
 
 ---
 
-## 🧑‍💻 Maintainer
+## Maintainer
 
 **Saurav Singh**  
 NIT Calicut  
@@ -69,7 +69,7 @@ NIT Calicut
 
 ---
 
-✅ For model training code and demo app, check out:  
-👉 [Real-Time Emotion Detection GitHub Repo](https://github.com/SauravB210489CS/emotion-app)
+ For model training code and demo app, check out:  
+ [Real-Time Emotion Detection GitHub Repo](https://github.com/SauravB210489CS/emotion-app)
 
 
