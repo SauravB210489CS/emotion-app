@@ -1,75 +1,171 @@
-# Hindi Speech Emotion Recognition Dataset
+# 🎙️ Real-Time Speech Emotion Recognition with Explainability
 
-This dataset contains labeled emotional speech recordings in Hindi across 8 distinct emotions. It is used for building machine learning and deep learning models for speech emotion recognition.
-
----
-
-##  Dataset Download
-
-🔗 [Click to download the dataset from Google Drive](https://drive.google.com/drive/folders/1Qjmc_kHq9i2lDXhtorzmNh5u_Gb6gEWT?usp=drive_link)
+This project implements a robust **Speech Emotion Recognition (SER)** system using deep learning techniques. It is designed for real-time prediction from live or uploaded audio. The model is based on a **CNN-BiLSTM-Attention** architecture and provides **explainability** using **Local Model-Agnostic Classification (LMAC)**, helping users understand *why* a particular emotion was predicted.
 
 ---
 
-##  Dataset Description
+## 🔍 What This Project Does
 
-- 🗂 **Structure**:
+This system detects emotions such as **happy**, **sad**, **angry**, **neutral**, etc., from speech signals by:
 
--  **Audio Format**: `.wav`
--  **Sample Rate**: 16 kHz
--  **Emotions**:
-- Happy
-- Sad
-- Angry
-- Disgust
-- Fear
-- Neutral
-- Surprise
-- Sarcastic
-
--  **Speakers**: 8 (Male & Female)
--  **Sessions per speaker**: 5
--  **Sentences per emotion**: 10 Hindi sentences (pre-defined)
+1. **Extracting rich acoustic features** (MFCC, Mel, Chroma, Spectral Contrast, Tonnetz)
+2. **Training a hybrid deep learning model** (CNN + BiLSTM + Attention)
+3. **Deploying a Streamlit web app** for real-time audio input and prediction
+4. **Visualizing predictions with waveform, spectrogram, and explainability**
+5. **Improving interpretability using LMAC** to highlight top contributing features
 
 ---
 
-##  Label Format
+## 📁 Project Structure
 
-Each file is named using the format:
-
----
-
-##  Usage
-
-You can use this dataset for:
-- Emotion classification using SVM, CNN, LSTM
-- Feature extraction (MFCC, Chroma, Mel)
-- Interpretability research using LMAC
-- Real-time emotion prediction apps
-
----
-
-## ⚠️ Terms of Use
-
-- This dataset is intended for **research and educational use only**
-- Redistribution requires attribution to the original collector
-- Do not use for commercial purposes without permission
-
----
-
-## 📜 Citation
+finalyearproject/
+│
+├── My Dataset/ # Structured dataset of .wav files across emotions
+├── features/ # Preprocessed 180-dim features
+├── models/ # Trained PyTorch model weights (.pt)
+├── scaler_encoder/ # Sklearn StandardScaler and LabelEncoder
+├── screenshots/ # App UI and explanation visuals
+├── augmented_data/ # Pitch, noise, and time-augmented audio
+├── app.py # Streamlit UI with real-time prediction + explanation
+├── train_model.py # CNN-BiLSTM-Attention training loop
+├── utils.py # Helper functions for feature extraction, LMAC, plotting
+├── spectrogram_plot.py # Spectrogram drawing during recording/upload
+├── requirements.txt # All dependencies
+└── README.md # You're reading it!
 
 
 ---
 
-## Maintainer
+## 🎯 Goals Achieved
 
-**Saurav Singh**  
-NIT Calicut  
-📧 sauravkumarsinghnitc@gmail.com
+✅ High-quality real-time SER pipeline  
+✅ Trained deep neural network with >80% accuracy  
+✅ Fully integrated Streamlit interface  
+✅ LMAC-based interpretability of predictions  
+✅ Audio visualization (waveform + spectrogram + timer)  
+✅ Data augmentation to increase robustness  
+✅ Live inference for both recorded and uploaded inputs
 
 ---
 
- For model training code and demo app, check out:  
- [Real-Time Emotion Detection GitHub Repo](https://github.com/SauravB210489CS/emotion-app)
+## 🛠️ Setup Instructions
 
+```bash
+# Clone the repository
+git clone https://github.com/your-username/speech-emotion-recognition.git
+cd speech-emotion-recognition
 
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install all dependencies
+pip install -r requirements.txt
+
+# (Optional) Train the model from scratch
+python train_model.py
+
+# Run the Streamlit app
+streamlit run app.py
+Model Overview
+Component	Purpose
+CNN Layers	Extract local patterns from temporal features (e.g., MFCC time series)
+BiLSTM Layer	Capture long-range temporal dependencies across time steps
+Attention	Focus on emotionally salient frames
+Dense Layer	Final emotion classification (8 classes)
+
+Input Shape: (180,)
+
+Output Classes: ['anger', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'sarcastic', 'surprise']
+
+📈 Feature Extraction
+Extracted using Librosa:
+
+MFCC (40 coefficients)
+
+Mel Spectrogram (40)
+
+Chroma Features (12)
+
+Spectral Contrast (7)
+
+Tonnetz (6)
+
+All features are mean-pooled over time, resulting in a 180-dimensional input vector per audio file.
+
+🔄 Data Augmentation Techniques
+To improve generalization and reduce overfitting:
+
+✅ Pitch shifting
+
+✅ Time stretching
+
+✅ Noise injection
+
+Each raw audio sample is transformed into multiple variations to simulate real-world variability.
+
+🧪 Training Details
+Parameter	Value
+Optimizer	Adam
+Learning Rate	0.0005
+Batch Size	32
+Epochs	100
+Loss Function	CrossEntropy
+Validation Split	20%
+
+The model is trained with live training and validation accuracy/loss plots to monitor convergence.
+
+📊 Evaluation
+✅ Accuracy > 80% on validation set
+
+✅ Confusion matrix analysis
+
+✅ Per-class accuracy visualization
+
+✅ LMAC explanations for every prediction
+
+✅ Confidence score shown in real-time interface
+
+🔍 Explainability with LMAC
+Local Model-Agnostic Classification (LMAC) explains predictions by:
+
+Perturbing inputs and observing model changes
+
+Ranking top contributing features (MFCC, Mel, etc.)
+
+Displaying a bar chart showing feature importance per prediction
+
+Helps users understand why the model predicted a specific emotion.
+
+🌐 Streamlit Interface Features
+🎙️ Start Recording: Capture 10 seconds of audio
+
+📂 Upload Audio: Use existing .wav file
+
+📉 Real-time Spectrogram + Waveform
+
+📊 Predicted Emotion + Confidence
+
+🧠 LMAC bar graph for interpretability
+
+⏳ Countdown timer during recording
+
+📷 Sample Visuals
+Spectrogram	LMAC Explainability
+
+📌 Future Improvements
+Use transformer-based models (e.g., Wav2Vec 2.0)
+
+Add emotion localization within audio
+
+Create a mobile version of the app
+
+Add speaker recognition and emotion intensity scoring
+
+👏 Acknowledgments
+📘 LMAC - Francesco Paissan
+
+🔧 Librosa, PyTorch, Streamlit, Scikit-learn
+
+📜 License
+This project is licensed under the MIT License. Feel free to fork and contribute!
