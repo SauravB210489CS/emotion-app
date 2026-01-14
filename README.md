@@ -21,7 +21,7 @@ The model extracts meaningful audio features (MFCC) and classifies the speaker's
 ## Tech Stack
 
 - Python  
-- TensorFlow / Keras  
+- TensorFlow
 - Librosa  
 - NumPy  
 - Streamlit  
